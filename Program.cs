@@ -3,8 +3,8 @@
 // 3. Сформировать новый массив строк из строк длиною меньшей или равной 3 символам
 // 4. Вывести результат
 
-string[] array = {"hello", "2", "world", ":-)"};
-//string[] array = {"1234", "1567", "-2", "computer science"};
+ string[] array = {"hello", "2", "world", ":-)"};
+// string[] array = {"1234", "1567", "-2", "computer science"};
 // string[] array = {"Russia", "Denmark", "Kazan"};
 
 int CountOfNeedSymbols(string[] arr) // подсчет подходящих строк
@@ -20,7 +20,7 @@ int CountOfNeedSymbols(string[] arr) // подсчет подходящих ст
     return counter;
 }
 
-void NewArray(string[] arrayIsh, string[] arrayNew) // подсчет подходящих строк
+void MainTask(string[] arrayIsh, string[] arrayNew) // подсчет подходящих строк
 {
     int length = arrayIsh.Length;
     int indexArray = 0;
@@ -49,7 +49,19 @@ string Print(string[] arr)
 }
 
 int count = CountOfNeedSymbols(array); // подсчет подходящих строк для последующего создания нового массива определенной длины
-string[] newArray = new string[count];
-NewArray(array, newArray);
-Console.WriteLine($"Новый массив: {Print(array)}");
-Console.WriteLine($"Новый массив: {Print(newArray)}");
+Console.WriteLine($"Исходный массив: {Print(array)}");
+
+if (count != 0)
+{
+    string[] newArray = new string[count];
+    MainTask(array, newArray);
+
+    string output = Print(newArray);
+    Console.WriteLine($"Новый массив: {output}");
+    File.WriteAllText("output.txt",output);
+}
+else
+{
+    Console.WriteLine("В данном массиве нет подходящих строк!");
+}
+
