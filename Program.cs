@@ -25,7 +25,7 @@ void NewArray(string[] arrayIsh, string[] arrayNew) // подсчет подхо
     int length = arrayIsh.Length;
     int indexArray = 0;
     int indexNewArray = 0;
-    
+
     while (indexArray < length)
     {
         if (arrayIsh[indexArray].Length <= 3)
@@ -37,6 +37,19 @@ void NewArray(string[] arrayIsh, string[] arrayNew) // подсчет подхо
     }
 }
 
+string Print(string[] arr)
+{
+    int length = arr.Length;
+    string output = String.Empty;
+    for (int i = 0; i < length; i++)
+    {
+        output += ($"{arr[i]} ");
+    }
+    return output;
+}
+
 int count = CountOfNeedSymbols(array); // подсчет подходящих строк для последующего создания нового массива определенной длины
 string[] newArray = new string[count];
 NewArray(array, newArray);
+Console.WriteLine($"Новый массив: {Print(array)}");
+Console.WriteLine($"Новый массив: {Print(newArray)}");
