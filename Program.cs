@@ -10,3 +10,18 @@ int count = 0;
 string[] newArray = new string[count];
 int indexNewArray = 0;
 
+int CountOfNeedSymbols(string[] arr)
+{
+    int counter = 0;
+    for (int i = 0; i < arr.Length; i++)
+    {
+        if (arr[i].Length <= 3)
+        {
+            counter++;
+        }
+    }
+    return counter;
+}
+
+count = CountOfNeedSymbols(array);
+Console.WriteLine(count);
