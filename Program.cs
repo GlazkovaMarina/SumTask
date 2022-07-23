@@ -4,13 +4,10 @@
 // 4. Вывести результат
 
 string[] array = {"hello", "2", "world", ":-)"};
-int length = array.Length;
-int indexArray = 0;
-int count = 0;
-string[] newArray = new string[count];
-int indexNewArray = 0;
+//string[] array = {"1234", "1567", "-2", "computer science"};
+// string[] array = {"Russia", "Denmark", "Kazan"};
 
-int CountOfNeedSymbols(string[] arr)
+int CountOfNeedSymbols(string[] arr) // подсчет подходящих строк
 {
     int counter = 0;
     for (int i = 0; i < arr.Length; i++)
@@ -23,5 +20,23 @@ int CountOfNeedSymbols(string[] arr)
     return counter;
 }
 
-count = CountOfNeedSymbols(array);
-Console.WriteLine(count);
+void NewArray(string[] arrayIsh, string[] arrayNew) // подсчет подходящих строк
+{
+    int length = arrayIsh.Length;
+    int indexArray = 0;
+    int indexNewArray = 0;
+    
+    while (indexArray < length)
+    {
+        if (arrayIsh[indexArray].Length <= 3)
+        {
+            arrayNew[indexNewArray] = arrayIsh[indexArray];
+            indexNewArray = indexNewArray + 1;
+        }
+        indexArray = indexArray + 1;
+    }
+}
+
+int count = CountOfNeedSymbols(array); // подсчет подходящих строк для последующего создания нового массива определенной длины
+string[] newArray = new string[count];
+NewArray(array, newArray);
